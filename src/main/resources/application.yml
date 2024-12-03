@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?ssl=false
+    username: postgres
+    password: admin
+  jpa:
+    defer-datasource-initialization: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: public
+  sql:
+    init:
+      mode: always
+
+#logging:
+#  level:
+##    org.hibernate: DEBUG
+##    org.springframework.orm.jpa: DEBUG
+##    org.springframework: DEBUG
+##    com.zaxxer.hikari: DEBUG
+
+
