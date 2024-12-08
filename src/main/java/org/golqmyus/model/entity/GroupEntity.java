@@ -1,9 +1,6 @@
-package org.golqmyus.model;
+package org.golqmyus.model.entity;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -19,6 +16,9 @@ public class GroupEntity extends BaseEntity {
     private String genre;
 
     private String logoUrl;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
 
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
     private List<ArtistEntity> members;
@@ -75,5 +75,13 @@ public class GroupEntity extends BaseEntity {
 
     public void setAlbums(List<AlbumEntity> albums) {
         this.albums = albums;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

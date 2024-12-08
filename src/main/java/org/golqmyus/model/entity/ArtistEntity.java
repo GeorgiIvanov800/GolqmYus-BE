@@ -1,4 +1,4 @@
-package org.golqmyus.model;
+package org.golqmyus.model.entity;
 
 import jakarta.persistence.*;
 
@@ -16,7 +16,7 @@ public class ArtistEntity extends BaseEntity {
 
     private Date bornDate;
 
-    @Lob
+    @Column(columnDefinition = "TEXT")
     private String biography;
 
     private String pictureURL;
@@ -43,7 +43,7 @@ public class ArtistEntity extends BaseEntity {
 
     @ElementCollection
     @CollectionTable(name = "artist_awards", joinColumns = @JoinColumn(name = "artist_id"))
-    @Column(name = "award")
+    @Column(name = "award" , columnDefinition = "TEXT")
     private List<String> awards = new ArrayList<>();
 
     //Fetching Strategy: By default,

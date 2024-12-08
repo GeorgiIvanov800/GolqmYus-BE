@@ -1,4 +1,4 @@
-package org.golqmyus.model;
+package org.golqmyus.model.entity;
 
 import jakarta.persistence.*;
 
@@ -15,9 +15,11 @@ public class AlbumEntity extends BaseEntity {
 
     private String genre;
 
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     private String imageUrl;
+
 
     @ManyToMany
     @JoinTable(
@@ -32,6 +34,7 @@ public class AlbumEntity extends BaseEntity {
 
     @ManyToOne
     private GroupEntity group;
+
 
     public AlbumEntity() {
 
