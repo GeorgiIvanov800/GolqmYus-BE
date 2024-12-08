@@ -2,6 +2,7 @@ package org.golqmyus.model.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class SongEntity extends BaseEntity {
 
     private String title;
 
-    private Duration duration;
+    private String duration;
 
     @ManyToOne()
     private AlbumEntity album;
@@ -24,7 +25,7 @@ public class SongEntity extends BaseEntity {
     @JoinColumn(name = "artist_id", nullable = false)
     private List<LyricsEntity> lyrics;
 
-    @Column(nullable = true, length = 10000) // lyrics text
+    @Column(columnDefinition = "TEXT")
     private String fullLyricsText;
 
     public SongEntity() {
@@ -38,11 +39,11 @@ public class SongEntity extends BaseEntity {
         this.title = title;
     }
 
-    public Duration getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Duration duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 

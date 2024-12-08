@@ -43,7 +43,7 @@ public class ArtistEntity extends BaseEntity {
 
     @ElementCollection
     @CollectionTable(name = "artist_awards", joinColumns = @JoinColumn(name = "artist_id"))
-    @Column(name = "award")
+    @Column(name = "award" , columnDefinition = "TEXT")
     private List<String> awards = new ArrayList<>();
 
     //Fetching Strategy: By default,

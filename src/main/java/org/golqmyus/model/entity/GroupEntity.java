@@ -1,9 +1,6 @@
 package org.golqmyus.model.entity;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,6 +17,7 @@ public class GroupEntity extends BaseEntity {
 
     private String logoUrl;
 
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
