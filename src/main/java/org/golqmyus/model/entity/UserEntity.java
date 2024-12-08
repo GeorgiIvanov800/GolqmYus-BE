@@ -33,6 +33,9 @@ public class UserEntity extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<UserRoleEntity> roles = new ArrayList<>();
 
+    @Column(nullable = false)
+    private int userScore;
+
     //TODO implement activation with email confirmation
     private boolean active;
 
@@ -101,5 +104,13 @@ public class UserEntity extends BaseEntity {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public int getUserScore() {
+        return userScore;
+    }
+
+    public void setUserScore(int userScore) {
+        this.userScore = userScore;
     }
 }

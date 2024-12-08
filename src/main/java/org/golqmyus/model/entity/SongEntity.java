@@ -1,9 +1,6 @@
-package org.golqmyus.model;
+package org.golqmyus.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.Duration;
 import java.util.List;
@@ -21,6 +18,14 @@ public class SongEntity extends BaseEntity {
 
     @ManyToMany(mappedBy = "songs")
     private List<ArtistEntity> artist;
+
+    //TODO timestamped the lyrics in the future to remove the fullLyricsText column
+    @OneToMany
+    @JoinColumn(name = "artist_id", nullable = false)
+    private List<LyricsEntity> lyrics;
+
+    @Column(nullable = true, length = 10000) // lyrics text
+    private String fullLyricsText;
 
     public SongEntity() {
     }
@@ -55,5 +60,21 @@ public class SongEntity extends BaseEntity {
 
     public void setArtist(List<ArtistEntity> artist) {
         this.artist = artist;
+    }
+
+    public List<LyricsEntity> getLyrics() {
+        return lyrics;
+    }
+
+    public void setLyrics(List<LyricsEntity> lyrics) {
+        this.lyrics = lyrics;
+    }
+
+    public String getFullLyricsText() {
+        return fullLyricsText;
+    }
+
+    public void setFullLyricsText(String fullLyricsText) {
+        this.fullLyricsText = fullLyricsText;
     }
 }

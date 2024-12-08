@@ -1,4 +1,4 @@
-package org.golqmyus.model;
+package org.golqmyus.model.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
