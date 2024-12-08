@@ -16,7 +16,7 @@ spring:
         default_schema: public
   sql:
     init:
-      mode: always
+#      mode: always
 
 #logging:
 #  level:
