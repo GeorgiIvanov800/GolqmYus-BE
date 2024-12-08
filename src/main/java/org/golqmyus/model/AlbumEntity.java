@@ -19,6 +19,7 @@ public class AlbumEntity extends BaseEntity {
 
     private String imageUrl;
 
+
     @ManyToMany
     @JoinTable(
             name = "album_artist",
@@ -32,6 +33,7 @@ public class AlbumEntity extends BaseEntity {
 
     @ManyToOne
     private GroupEntity group;
+
 
     public AlbumEntity() {
 

@@ -20,6 +20,8 @@ public class GroupEntity extends BaseEntity {
 
     private String logoUrl;
 
+    private String description;
+
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
     private List<ArtistEntity> members;
 
@@ -75,5 +77,13 @@ public class GroupEntity extends BaseEntity {
 
     public void setAlbums(List<AlbumEntity> albums) {
         this.albums = albums;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -16,7 +16,7 @@ public class ArtistEntity extends BaseEntity {
 
     private Date bornDate;
 
-    @Lob
+    @Column(columnDefinition = "TEXT")
     private String biography;
 
     private String pictureURL;
