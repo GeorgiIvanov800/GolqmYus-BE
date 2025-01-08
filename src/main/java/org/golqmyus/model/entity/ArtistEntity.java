@@ -14,7 +14,7 @@ public class ArtistEntity extends BaseEntity {
 
     private String lastName;
 
-    private Date bornDate;
+    private String bornDate;
 
     @Column(columnDefinition = "TEXT")
     private String biography;
@@ -78,14 +78,37 @@ public class ArtistEntity extends BaseEntity {
         this.lastName = lastName;
     }
 
-    public Date getBornDate() {
+    public String getBornDate() {
         return bornDate;
     }
 
-    public void setBornDate(Date bornDate) {
+    public void setBornDate(String bornDate) {
         this.bornDate = bornDate;
     }
 
+    public List<SongEntity> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<SongEntity> songs) {
+        this.songs = songs;
+    }
+
+    public GroupEntity getGroup() {
+        return group;
+    }
+
+    public void setGroup(GroupEntity group) {
+        this.group = group;
+    }
+
+    public List<AlbumEntity> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(List<AlbumEntity> albums) {
+        this.albums = albums;
+    }
 
     public String getBiography() {
         return biography;

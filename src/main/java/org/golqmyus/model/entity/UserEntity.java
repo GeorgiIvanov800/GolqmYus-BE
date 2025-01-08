@@ -2,6 +2,7 @@ package org.golqmyus.model.entity;
 
 import jakarta.persistence.*;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false)
     private String username;
 
-    private LocalDateTime registrationDate;
+    private Instant registrationDate;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -82,11 +83,11 @@ public class UserEntity extends BaseEntity {
         this.username = username;
     }
 
-    public LocalDateTime getRegistrationDate() {
+    public Instant getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(LocalDateTime registrationDate) {
+    public void setRegistrationDate(Instant registrationDate) {
         this.registrationDate = registrationDate;
     }
 
