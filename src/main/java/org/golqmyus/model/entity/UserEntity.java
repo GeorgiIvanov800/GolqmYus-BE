@@ -25,6 +25,8 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false)
     private String username;
 
+    private String imageUrl;
+
     private Instant registrationDate;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -34,7 +36,6 @@ public class UserEntity extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<UserRoleEntity> roles = new ArrayList<>();
 
-    @Column(nullable = false)
     private int userScore;
 
     //TODO implement activation with email confirmation
@@ -113,5 +114,13 @@ public class UserEntity extends BaseEntity {
 
     public void setUserScore(int userScore) {
         this.userScore = userScore;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
