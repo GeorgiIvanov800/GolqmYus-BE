@@ -5,4 +5,5 @@ import org.golqmyus.model.entity.UserEntity;
 
 public interface UserService {
     UserEntity registerUser(UserDTO user);
+    String loginUser(UserDTO user);
 }
