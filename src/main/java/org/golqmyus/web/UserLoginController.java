@@ -1,7 +1,10 @@
 package org.golqmyus.web;
 
+import org.golqmyus.model.dto.LoginResponse;
 import org.golqmyus.model.dto.UserDTO;
 import org.golqmyus.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +21,13 @@ public class UserLoginController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody UserDTO  user) {
+    public ResponseEntity<LoginResponse> login(@RequestBody UserDTO  user) {
+            LoginResponse response = userService.loginUser(user);
 
-        return userService.loginUser(user);
+            if (response.success()) {
+                return ResponseEntity.ok(response);
+            } else {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+            }
     }
 }

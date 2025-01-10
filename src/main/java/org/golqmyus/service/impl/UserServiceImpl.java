@@ -1,5 +1,6 @@
 package org.golqmyus.service.impl;
 
+import org.golqmyus.model.dto.LoginResponse;
 import org.golqmyus.model.dto.UserDTO;
 import org.golqmyus.model.entity.UserEntity;
 import org.golqmyus.model.entity.UserRoleEntity;
@@ -54,20 +55,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String loginUser(UserDTO user) {
-
+    public LoginResponse loginUser(UserDTO user) {
         try {
             Authentication authentication = authManager.authenticate(
                     new UsernamePasswordAuthenticationToken(user.username(), user.password()));
             if (authentication.isAuthenticated()) {
                 System.out.println("Authenticated: " + authentication);
-                return "Success";
+                return new LoginResponse("Login successful", true);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return "Failed: " + e.getMessage();
+            return new LoginResponse("Invalid username or password", false);
         }
-        return "Failed";
+        return new LoginResponse("Login failed for unknown reasons", false);
+
     }
 
 
