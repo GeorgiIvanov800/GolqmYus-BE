@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
             UserEntity user = mapToEntity(userRegistration);
 
         //Create a role entity every new user should have the role of USER
-        UserRoleEntity userRole = userRoleRepository.findByRole(UserRoleEnum.USER);
+        UserRoleEntity userRole = userRoleRepository.findByRole(UserRoleEnum.ROLE_USER);
 
         // Handle empty imageUrl
         if (user.getImageUrl() == null || user.getImageUrl().isEmpty()) {
