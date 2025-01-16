@@ -1,7 +1,8 @@
 package org.golqmyus.model.dto;
 
 public record LoginResponse(
-        String message,
-        boolean success
+        String token,
+        String username,
+        String imgUrl
 ) {
 }

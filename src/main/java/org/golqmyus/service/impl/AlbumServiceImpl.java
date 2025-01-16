@@ -25,4 +25,10 @@ public class AlbumServiceImpl implements AlbumService {
     public AlbumDTOId getAlbumById(Long id) {
         return albumRepository.findAlbumById(id);
     }
+
+    @Override
+    public List<AlbumDTOId> getAlbumByArtist(Long id) {
+
+        return albumRepository.findAlbumByArtistsId(id);
+    }
 }

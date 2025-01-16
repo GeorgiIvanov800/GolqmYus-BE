@@ -9,4 +9,6 @@ public interface AlbumService {
 
     List<AlbumDTO> getAllAlbums();
     AlbumDTOId getAlbumById(Long id);
+
+    List<AlbumDTOId> getAlbumByArtist(Long id);
 }
