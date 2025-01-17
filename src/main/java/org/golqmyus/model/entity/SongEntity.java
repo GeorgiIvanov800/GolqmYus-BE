@@ -28,6 +28,8 @@ public class SongEntity extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String fullLyricsText;
 
+    private String songUrl;
+
     public SongEntity() {
     }
 
@@ -77,5 +79,13 @@ public class SongEntity extends BaseEntity {
 
     public void setFullLyricsText(String fullLyricsText) {
         this.fullLyricsText = fullLyricsText;
+    }
+
+    public String getSongUrl() {
+        return songUrl;
+    }
+
+    public void setSongUrl(String songUrl) {
+        this.songUrl = songUrl;
     }
 }

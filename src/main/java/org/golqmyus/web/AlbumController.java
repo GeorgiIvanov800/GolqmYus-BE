@@ -3,10 +3,7 @@ package org.golqmyus.web;
 import org.golqmyus.service.AlbumService;
 import org.golqmyus.service.SongService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/albums")
@@ -32,5 +29,10 @@ public class AlbumController {
     @GetMapping("/{albumId}/tracks")
     public ResponseEntity<?> getAllSongsByAlbum(@PathVariable Long albumId) {
         return ResponseEntity.ok(songService.findSongsByAlbumId(albumId));
+    }
+    @GetMapping("/{artistId}/album")
+    public ResponseEntity<?> getAlbumsByArtist(@PathVariable Long artistId) {
+
+        return ResponseEntity.ok(albumService.getAlbumByArtist(artistId));
     }
 }

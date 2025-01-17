@@ -23,8 +23,6 @@ public class MyUserDetailService implements UserDetailsService {
 
         UserEntity user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User " + username + " not found!"));
-        System.out.println("Database password: " + user.getPassword());
-        System.out.println("Database username: " + user.getUsername());
         return new UserPrincipal(user);
     }
 }

@@ -25,4 +25,5 @@ public interface AlbumRepository extends JpaRepository<AlbumEntity, Long> {
     List<AlbumDTO> findAllAlbumsForGroup();
 
     AlbumDTOId findAlbumById(Long id);
+    List<AlbumDTOId> findAlbumByArtistsId(Long artistId);
 }
