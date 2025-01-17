@@ -42,7 +42,7 @@ public class SecurityConfiguration {
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
-                .requestMatchers("/api/users/login", "/api/users/register", "/api/users/logout", "/api/users/check-username","/api/users/check-email")
+                .requestMatchers("/api/users/login", "/api/users/register", "/api/users/logout", "/api/users/check-username","/api/users/check-email", "/songs/**")
                 .permitAll()
                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())

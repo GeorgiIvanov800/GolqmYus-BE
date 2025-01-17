@@ -4,6 +4,7 @@ public record SongDTO(
         Long id,
         String title,
         String duration,
-        String fullLyricsText
+        String fullLyricsText,
+        String songUrl
 
 ){}
